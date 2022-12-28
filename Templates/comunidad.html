@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-3">Formulario de Contacto</h1>
+  <hr class="my-4">
+  <form method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="campo_correo">Correo:</label>
+        <input type="correo" class="form-control" id="campo_correo" name="correo">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="campo_nombre">Nombre:</label>
+        <input type="name" class="form-control" id="campo_nombre" name="nombre">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="campo_apellido">Apellido:</label>
+        <input type="name" class="form-control" id="campo_apellidos" name="apellido">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="campo_direccion">Pais:</label>
+        <input type="name" class="form-control" id="campo_direccion" name="direccion">
+      </div> 
+      <div class="form-group col-md-6">
+        <label for="campo_ciudad">Ciudad:</label>
+        <input type="name" class="form-control" id="campo_ciudad" name="ciudad">
+    </div>    
+    </div>
+    <br>
+        <div class="form-group col-md-6">
+          <label form="campo_comentario">Deja un comentario.</label>
+          <textarea class="form-control" id="campo_comentario:" rows="3" name="comentario"></textarea>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Enviar</button>
+    <input class="btn btn-outline-primary" type="reset" value="Limpiar el formulario">
+    <a class="btn btn-outline-primary" href="/" role="button"> Ir al inicio</a>
+
+
+  </form>
+
+
+
+  {% if comentarios %}
+  <br>
+  <h1>COMENTARIOS</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        {% for comentario in comentarios %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ comentario.0 }}</h5>
+            <p class="card-text">{{ comentario.1 }}</p>
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+  {% endif %}
+  {% endblock %}
